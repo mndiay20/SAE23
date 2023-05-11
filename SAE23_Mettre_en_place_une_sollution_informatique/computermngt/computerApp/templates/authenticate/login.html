@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>Login</h1>
+<br/><br/>
+
+    <form action="" method="POST"> {% csrf_token %} 
+    
+    <div class="mb-3">
+        <label for=" " class="form-label">Username</label>
+        <input type="text" class="form-control " name="Username" 
+        aria-describedby="emailHelp"
+    </div>
+
+    <div class="mb-3">
+        <label for=" " class="form-label">Password</label>
+        <input type="password" class="form-control " name="Password"
+        aria-describedby="exampleinputPassword"
+    </div> 
+    
+    <input type="submit" value="Submit" class="bouton">
+
+    </form>
+
+{% endblock %}
+
+

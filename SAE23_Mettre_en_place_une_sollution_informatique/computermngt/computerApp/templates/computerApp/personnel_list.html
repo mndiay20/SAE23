@@ -1,0 +1,23 @@
+{% extends "index.html" %} 
+
+{% block content %} 
+    <h1>Liste des personnes</h1>
+    {% if personnes %}
+    <ul>
+        {% for personnel in personnes %} 
+            <li>
+                <a href="{% url 'personne-detail' personnel.id %}">
+                {{ personnel.id }} </a> ({{personnel.nom}})
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Il n\'y a pas de personnel.</p>
+    {% endif %}
+
+
+    <div class="ajout3">
+        <a href="{% url 'add-personne' %}">Ajouter une personne</a>
+    </div>
+
+{% endblock %}
