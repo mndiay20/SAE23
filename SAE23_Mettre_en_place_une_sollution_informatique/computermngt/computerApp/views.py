@@ -87,6 +87,7 @@ def machine_add_form(request):
         context = {'form': form}
         return render(request, 'computerApp/machine_add.html', context)
 
+
 def personne_add_form(request):
     if request.method == 'POST':
         form = AddPersonnelForm(request.POST or None)

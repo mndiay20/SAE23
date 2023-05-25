@@ -1,9 +1,11 @@
+/*--------------------index-------------------------*/
+
 body {
     height: 100%;
     margin: 0;
     border: 0;
     font-family: sans-serif;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .container {
@@ -91,4 +93,57 @@ nav a {
     display: inline-block;
     margin-left: 5%;
 
+}
+
+
+
+/*-----------------machine list------------------------------*/
+
+#machine_list .box1 {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+
+#machine_list .box1 img {
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    
+    
+}
+
+#machine_list .box1 a {
+    padding-left: 38%;
+}
+
+
+
+
+/*-----------------personnel list------------------------------*/
+
+#personnel_list .box2 {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+
+#personnel_list .box2 img {
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    
+    
+}
+
+#personnel_list .box2 a {
+    padding-left: 38%;
 }

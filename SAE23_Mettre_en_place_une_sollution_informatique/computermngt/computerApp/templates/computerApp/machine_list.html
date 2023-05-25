@@ -1,11 +1,14 @@
 {% extends "index.html" %} 
 
 {% block content %} 
+{% load static %} 
+    <div id="machine_list">
     <h1>Liste des machines</h1>
     {% if machines %}
     <ul>
         {% for machine in machines %} 
-            <li>
+            <li class="box1">
+                <img src="{% static 'computerApp/images/image_de_pc.jpg' %}">
                 <a href="{% url 'machine-detail' machine.id %}">
                 {{ machine.id }}</a> ({{machine.nom}})
             </li>
@@ -19,6 +22,6 @@
     <div class="ajout3">
         <a href="{% url 'add-machine' %}">Ajouter une machine</a>
     </div>
-
+    </div>
 
 {% endblock %}
