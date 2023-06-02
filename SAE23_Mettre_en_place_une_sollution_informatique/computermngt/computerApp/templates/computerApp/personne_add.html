@@ -2,10 +2,14 @@
 
 {% block content %} 
 
-<form method="post">
+<h1>Ajouter une personne</h1>
+<form method="POST" action="{% url 'add-personne' %}">
     {% csrf_token %} 
     {{ form.nom }} 
-    <input type="submit" value="Submit">
+    {{ form.prenom }} 
+    {{ form.pers }} 
+    <input type="submit" value="Ajouter">
 </form>
 
 {% endblock %}
+

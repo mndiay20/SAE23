@@ -19,8 +19,9 @@ class Machine(models.Model):
         default=datetime.now())
     mach = models.CharField(
         max_length=32, choices=TYPE, default='PC')
-    #utilisateur = models.ForeignKey(
-    #  'computerApp.Personnel', on_delete=models.SET_NULL, null=True)
+    utilisateur = models.ForeignKey(
+      'computerApp.Personnel', on_delete=models.SET_NULL, null=True)
+
 
     def __str__(self): return str(self.id) + " -> " + self.nom
     def get_name(self): return str(self.id) + " " + self.nom
