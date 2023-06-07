@@ -1,0 +1,14 @@
+{% extends "index.html" %} 
+
+{% block content %} 
+<div class="detail">
+    <h1>Nom: {{ machine.nom}} </h1>
+    <p><strong>id</strong> : {{ machine.id }}</p>
+    <p><strong>Date de maintenance : </strong> {{ machine.maintenanceDate }} </p>
+    <p><strong>Machine :</strong> {{ machine.mach }}</p>
+    <p><strong>Réseau :</strong> {{ machine.reseau }}</p>
+    <p><strong>Adresse IP :</strong> {{ machine.ip }}</p>
+    <p><strong>Utilisateur :</strong> {{ machine.utilisateur }}</p>
+    <a href="{% url 'machine-delete' machine.pk %}">Supprimer</a>
+</div>
+{% endblock %}

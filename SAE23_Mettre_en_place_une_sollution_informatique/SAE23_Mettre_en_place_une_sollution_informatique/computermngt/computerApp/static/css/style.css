@@ -1,0 +1,162 @@
+/*--------------------index-------------------------*/
+
+body {
+    height: 100%;
+    margin: 0;
+    border: 0;
+    font-family: sans-serif;
+    background-color: white;
+}
+
+.container {
+    height: 100%;
+    margin: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+
+/*menu*/
+nav{
+    width: 100%;
+    background-color: #D6DBDF;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+nav ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+nav ul li{
+    float: right;
+    position: relative;
+
+}
+nav ul li:hover {
+    border-top: 5px solid #5A5857;
+    background-color: #AEB6BF;
+}
+nav ul li a{
+    padding: 20px 30px;
+    color:black;
+}
+
+nav li{
+    list-style-type: none;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+/* pied de page */
+
+.ajout1 {
+    background-color: #5db3ec;
+    color: black;
+    padding: 13px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    display: inline-block;
+    margin-left: 6%;
+}
+
+.ajout2 {
+    background-color: #5db3ec;
+    color: black;
+    padding: 13px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    display: inline-block;
+    margin-left: 50%;
+
+}
+
+.ajout3 {
+    background-color: #5db3ec;
+    color: black;
+    padding: 13px;
+    margin-top: 10%;
+    display: inline-block;
+    margin-left: 5%;
+
+}
+
+
+
+/*-----------------machine list------------------------------*/
+
+#machine_list .box1 {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+
+#machine_list .box1 img {
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    
+    
+}
+
+#machine_list .box1 a {
+    padding-left: 38%;
+}
+
+
+
+
+/*-----------------personnel list------------------------------*/
+
+#personnel_list .box2 {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+
+#personnel_list .box2 img {
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    
+    
+}
+
+#personnel_list .box2 a {
+    padding-left: 38%;
+}
+
+
+
+/*-----------------Login------------------------------*/
+body section{
+    background-color: #aaa7a5;
+    text-align: justify;
+    width: 100%;
+    padding: 15%;
+    margin-top: -3.5%;
+    padding-bottom: 20%;
+}
+

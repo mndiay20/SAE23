@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>R&T Development</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- On ajoute un fichier CSS depuis les static-->
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+<body>
+
+    {% block sidebar %}
+    <nav>
+        <ul>
+            <li><a href="{% url 'personnes' %}">PERSONNES</a></li>
+            <li><a href="{% url 'machines' %}">MACHINES</a></li>
+            <li><a href="{% url 'index' %}">ACCUEIL</a></li>
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
+        </ul>
+    </nav>
+    {% endblock %}
+
+    
+    {% block content %} 
+    {% load static %} 
+    <div class="container">
+        <h1>Bienvenue sur le site de R&T Development</h1>   
+        <h2>Aujourd'hui nous sommes le {{ date|date:"d F Y" }}</h2>
+        <h3>Il est actuellement {{ date|date:"H\hi" }}</h3>
+      
+        <img src="{% static 'computerApp/images/logo_compagnie.png' %}"
+        alt="logo de la compagnie" style="position: center; height: 200px;">
+    </div>
+
+
+    <div class="ajout1">
+        <a href="{% url 'add-machine' %}">Ajouter une machine</a>
+    </div>
+
+    <div class="ajout2">
+        <a href="{% url 'add-personne' %}">Ajouter une personne</a>
+    </div>
+
+    {% endblock %}
+    
+
+</body>
+</html>

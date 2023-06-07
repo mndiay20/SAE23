@@ -1,0 +1,15 @@
+{% extends "index.html" %} 
+
+{% block content %} 
+<section>
+<h2>Supprimer la machine "{{ machine.nom }}"</h2>
+
+
+<form method="post">
+  {% csrf_token %}
+  <p>Êtes-vous sûr de vouloir supprimer la machine "{{ machine.nom }}" ?</p>
+
+  <input type="submit" value="Supprimer">
+</form>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "index.html" %} 
+
+{% block content %} 
+<h1>Ajouter une machine</h1>
+<form method="POST" action="{% url 'add-machine' %}">
+    {% csrf_token %} 
+    <p>Nom de la machine : {{ form.nom }}</p>
+    <p>Type de la machine : {{ form.mach }}</p>
+    <p>Réseau de la machine : {{ form.reseau }}</p>
+    <p>Adresse IP : {{ form.ip }}</p>
+    <p>Utilisateur : {{ form.utilisateur }}</p>
+</br>
+    <input type="submit" value="Ajouter">
+</form>
+
+{% endblock %}
+
+
+
