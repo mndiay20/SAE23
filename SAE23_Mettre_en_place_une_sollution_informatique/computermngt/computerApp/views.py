@@ -42,12 +42,16 @@ def personne_detail_view(request, pk):
     return render(request, 'computerApp/personne_detail.html', context)
 
 
-@login_required(login_url='/login/')
+
 def machine_add_form(request):
     if request.method == 'POST':
         form = AddMachineForm(request.POST or None)
         if form.is_valid():
-            new_machine = Machine(nom=form.cleaned_data['nom'])
+            new_machine = Machine(nom=form.cleaned_data['nom'],
+                                mach=form.cleaned_data['mach'],
+                                reseau=form.cleaned_data['reseau'],
+                                ip=form.cleaned_data['ip'],
+                                utilisateur=form.cleaned_data['utilisateur'],)
             new_machine.save()
             return redirect('machines')
     else:
@@ -56,12 +60,15 @@ def machine_add_form(request):
         return render(request, 'computerApp/machine_add.html', context)
 
 
-@login_required(login_url='/login/')
+
+
 def personne_add_form(request):
     if request.method == 'POST':
         form = AddPersonnelForm(request.POST or None)
         if form.is_valid():
-            new_personne = Personnel(nom=form.cleaned_data['nom'])
+            new_personne = Personnel(nom=form.cleaned_data['nom'],
+                                    prenom=form.cleaned_data['prenom'],
+                                    pers=form.cleaned_data['pers'],)
             new_personne.save()
             return redirect('personnes')
     else:
@@ -70,7 +77,29 @@ def personne_add_form(request):
         return render(request, 'computerApp/personne_add.html', context)
 
 
-# connexion
+
+
+
+def machine_delete_view(request, pk):
+    machine = get_object_or_404(Machine, pk=pk)
+    if request.method == 'POST':
+        machine.delete()
+        return redirect('machines')  # Redirige vers la liste des machines après la suppression
+    return render(request, 'computerApp/machine_delete.html', {'machine': machine})
+
+
+
+
+def personne_delete_view(request, pk):
+    personne = get_object_or_404(Personnel, pk=pk)
+    if request.method == 'POST':
+        personne.delete()
+        return redirect('personnes')
+    return render(request, 'computerApp/personne_delete.html', {'personne': personne})
+
+
+
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -78,14 +107,10 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('add_machine')  # Redirect to add machine page after successful login
+            return redirect('index')  # Rediriger vers la page index.html après une connexion réussie
         else:
-            return HttpResponseForbidden('Invalid login credentials')
+            # Gérer les erreurs d'authentification invalide
+            context = {'error_message': 'Identifiant ou mot de passe incorrect'}
+            return render(request, 'registration/login.html', context)
     else:
-        return render(request, 'login.html')
-
-
-# déconnexion
-def logout_view(request):
-    logout(request)
-    return redirect('index')
+        return render(request, 'registration/login.html')

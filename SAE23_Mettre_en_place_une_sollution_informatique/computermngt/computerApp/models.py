@@ -1,14 +1,20 @@
 from datetime import datetime
 from django.db import models
-
 # Create your models here.
 
 class Machine(models.Model):
+    RESEAU_MACHINE = (
+        ('Filial', 'Filial - 192.168.0.0'),
+        ('FAI', 'FAI - 10.10.10.0'),
+        ('DMZ', 'DMZ - 172.16.0.0'),
+    )
+
     TYPE = (
         ('PC', ('PC - Run windows')),
         ('Mac', ('Mac - Run MacOS')),
         ('Serveur', ('Serveur - Simple Server to deploy virtual machines')),
         ('Switch', ('Switch - To maintains and connect servers')),
+        ('Rooter', ('Rooter - To maintains and connect LAN')),
     )
 
     id = models.AutoField(
@@ -18,14 +24,20 @@ class Machine(models.Model):
     maintenanceDate = models.DateField(
         default=datetime.now())
     mach = models.CharField(
-        max_length=32, choices=TYPE, default='PC')
+        max_length=200, choices=TYPE, default='PC')
+    reseau = models.CharField(
+        max_length=200, choices=RESEAU_MACHINE, default='FAI')
+    ip = models.GenericIPAddressField(
+        null=True)
     utilisateur = models.ForeignKey(
       'computerApp.Personnel', on_delete=models.SET_NULL, null=True)
+    
 
 
     def __str__(self): return str(self.id) + " -> " + self.nom
     def get_name(self): return str(self.id) + " " + self.nom
-   
+
+    
 
 class Personnel(models.Model):
     ROLE = (

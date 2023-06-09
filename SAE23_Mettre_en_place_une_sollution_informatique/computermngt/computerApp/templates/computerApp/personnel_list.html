@@ -11,7 +11,7 @@
             <li class="box2">
                 <img src="{% static 'computerApp/images/image_personne.png' %}">
                 <a href="{% url 'personne-detail' personnel.id %}">
-                {{ personnel.id }} </a> ({{personnel.nom}})
+                    {{personnel.nom}} </a> 
             </li>
         {% endfor %}
     </ul>

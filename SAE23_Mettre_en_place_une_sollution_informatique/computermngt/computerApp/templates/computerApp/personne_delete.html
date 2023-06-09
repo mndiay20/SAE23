@@ -1,0 +1,21 @@
+{% extends "index.html" %} 
+
+{% block content %} 
+<section>
+<h1>Supprimer {{ personne.nom }} {{ personne.prenom }}</h1>
+
+<div class="alert alert-danger" role="alert">
+     <!-- Contenu de mon callout d'avertissement -->
+  
+<p>Êtes-vous sûr de vouloir supprimer {{ personne.nom }} {{ personne.prenom }} ?</p>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+
+    <input type="submit" value="Confirmer">
+
+</form>
+</section>
+
+{% endblock %}
